@@ -2,6 +2,7 @@
 **Data**: Dezembro 2024  
 **Análise**: Google PageSpeed Insights
 **URL**: https://rovelab.ca
+**PageSpeed Insights**: https://pagespeed.web.dev/analysis/https-rovelab-ca/eaj3j5vh4u?hl=pt&form_factor=desktop
 
 ## 📑 Índice de Otimizações
 
