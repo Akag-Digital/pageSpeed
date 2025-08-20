@@ -449,7 +449,7 @@ Após implementação completa:
 - **CLS < 0.1** (bom)
 - **FCP < 1.8s** (bom)
 - **LCP < 2.5s** (bom)
-- **Score Performance**: 70+ (verde)
+- **Score Performance**: 65+ (verde)
 
 ---
 
