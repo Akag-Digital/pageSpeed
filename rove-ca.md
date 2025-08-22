@@ -10,7 +10,6 @@
 
 ### Performance
 1. [🖼️ Otimização de Imagens](#1--otimização-de-imagens-economia-2131-kib)
-2. [🔤 Otimização de Fontes](#2--otimização-de-fontes-economia-220ms)
 3. [🚫 Eliminar Recursos Render-Blocking](#3--eliminar-recursos-render-blocking-economia-30ms)
 4. [📐 Reduzir Layout Shifts](#4--reduzir-layout-shifts-cls-0148)
 5. [🔄 Reduzir Reflow Forçado](#5--reduzir-reflow-forçado-169ms-total)
@@ -38,7 +37,7 @@
 
 ---
 
-## 1. 🖼️ Otimização de Imagens (Economia: 2.131 KiB)
+## 1. 🖼️ Otimização de Imagens
 
 ### Problemas Identificados:
 1. **Imagem Hero Banner** (1.880,7 KiB de economia)
@@ -51,71 +50,12 @@
 
 ### ✅ Correções Necessárias:
 
-#### A. Converter GIF para Vídeo
-```liquid
-<!-- ARQUIVO: sections/goto-hero-banner.liquid -->
-<!-- LINHA: ~70 (onde está a imagem) -->
-
-<!-- ANTES -->
-{%- render 'responsive-image', class: 'product-primary-image', image: featured_media, sizes: sizes -%}
-
-<!-- DEPOIS -->
-{%- if featured_media.media_type == 'video' or featured_media contains '.gif' -%}
-  <video autoplay loop muted playsinline loading="lazy">
-    <source src="{{ featured_media | replace: '.gif', '.mp4' | asset_url }}" type="video/mp4">
-    <source src="{{ featured_media | replace: '.gif', '.webm' | asset_url }}" type="video/webm">
-  </video>
-{%- else -%}
-  {%- render 'responsive-image', class: 'product-primary-image', image: featured_media, sizes: sizes -%}
-{%- endif -%}
-```
-
-#### B. Implementar Responsive Images
-```liquid
-<!-- ARQUIVO: snippets/responsive-image.liquid -->
-<!-- Adicionar srcset com múltiplas resoluções -->
-
-<img 
-  srcset="{{ image | img_url: '375x' }} 375w,
-          {{ image | img_url: '750x' }} 750w,
-          {{ image | img_url: '1125x' }} 1125w,
-          {{ image | img_url: '1500x' }} 1500w"
-  sizes="(max-width: 768px) 100vw, 50vw"
-  loading="lazy"
-  decoding="async"
-  fetchpriority="{{ priority | default: 'auto' }}"
->
-```
+#### Converter GIF para Vídeo
+- Usar vídeo em vez de um GIF grande em HTML é mais eficiente, pois vídeos são comprimidos de forma muito melhor, resultando em arquivos menores e mais rápidos de carregar.
 
 ---
 
-## 2. 🔤 Otimização de Fontes (Economia: 220ms)
-
-### Problema:
-- Fonte `fa-light-300.woff2` do Rebuy Engine causando delay
-
-### ✅ Correção:
-```html
-<!-- ARQUIVO: layout/theme.liquid -->
-<!-- Adicionar no <head> -->
-
-<link rel="preconnect" href="https://rebuyengine.com">
-<link rel="dns-prefetch" href="https://rebuyengine.com">
-
-<!-- Adicionar font-display: swap -->
-<style>
-  @font-face {
-    font-family: 'FA Light';
-    src: url('https://rebuyengine.com/webfonts/fa-light-300.woff2') format('woff2');
-    font-display: swap; /* Critical for performance */
-    font-weight: 300;
-  }
-</style>
-```
-
----
-
-## 3. 🚫 Eliminar Recursos Render-Blocking (Economia: 30ms)
+## 2. 🚫 Eliminar Recursos Render-Blocking
 
 ### Recursos Bloqueantes:
 1. `single-image.css` (1.6 KiB)
@@ -127,7 +67,6 @@
 #### A. Defer JavaScript não-crítico
 ```liquid
 <!-- ARQUIVO: sections/goto-products.liquid -->
-<!-- LINHAS: 3-5 -->
 
 <!-- ANTES -->
 {{ 'preorder.js' | asset_url | script_tag }}
@@ -142,15 +81,6 @@
 
 #### B. Inline Critical CSS
 ```liquid
-<!-- ARQUIVO: layout/theme.liquid -->
-<!-- Adicionar no <head> -->
-
-<style>
-  /* Critical CSS - inline apenas o necessário para above-the-fold */
-  .hero-banner-goto { min-height: 100vh; }
-  .product-card { display: block; }
-  /* ... outros estilos críticos ... */
-</style>
 
 <!-- Carregar resto async -->
 <link rel="preload" href="{{ 'single-image.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -159,7 +89,7 @@
 
 ---
 
-## 4. 📐 Reduzir Layout Shifts (CLS: 0.148)
+## 3. 📐 Reduzir Layout Shifts
 
 ### Elementos com Shift:
 1. Product cards do M1 SOFA (0.121)
@@ -216,40 +146,8 @@
 
 ### ✅ Correções:
 
-#### A. Otimizar animações
-```javascript
-// ARQUIVO: assets/animations.min.js
-// Use requestAnimationFrame para batching
-
-// ANTES
-element.style.transform = 'translateX(' + x + 'px)';
-element.style.opacity = opacity;
-
-// DEPOIS
-requestAnimationFrame(() => {
-  element.style.cssText = `
-    transform: translateX(${x}px);
-    opacity: ${opacity};
-  `;
-});
-```
-
-#### B. Debounce scroll events
-```javascript
-// ARQUIVO: assets/global.js ou theme.js
-// Adicionar debounce para scroll
-
-let scrollTimeout;
-window.addEventListener('scroll', () => {
-  if (scrollTimeout) {
-    window.cancelAnimationFrame(scrollTimeout);
-  }
-  
-  scrollTimeout = window.requestAnimationFrame(() => {
-    // Seu código de scroll aqui
-  });
-}, { passive: true });
-```
+#### A. Remover:
+ - Removendo o arquivo animations.min.js. É aplicado apenas no componente slider. Nesse momento não está sendo usado no tema.
 
 ---
 
@@ -260,22 +158,10 @@ window.addEventListener('scroll', () => {
 
 ### ✅ Correções:
 
-```liquid
-<!-- ARQUIVO: sections/goto-hero-banner.liquid -->
-<!-- Adicionar fetchpriority e preload -->
-
-{% if section.settings.image %}
-  <link rel="preload" as="image" href="{{ section.settings.image | img_url: '1920x' }}" fetchpriority="high">
-{% endif %}
-
-<img 
-  src="{{ section.settings.image | img_url: '1920x' }}"
-  fetchpriority="high"
-  loading="eager" <!-- Não usar lazy para LCP -->
-  decoding="async"
->
-```
-
+- Use imagens responsivas, otimizadas e em formatos modernos como WebP ou AVIF.
+- Defina width e height para reservar espaço e evitar deslocamentos de layout.
+- Priorize o carregamento com fetchpriority="high" e loading="eager".
+- Reduza scripts bloqueantes e use CDN para entregar o conteúdo mais rápido ao usuário.
 ---
 
 ## 7. 🌐 Otimizar Árvore de Dependências de Rede
@@ -288,7 +174,7 @@ window.addEventListener('scroll', () => {
 
 ### ✅ Correções:
 
-#### A. Preconnect para recursos críticos
+#### Preconnect para recursos críticos
 ```html
 <!-- ARQUIVO: layout/theme.liquid -->
 <!-- Adicionar no início do <head> -->
@@ -297,15 +183,6 @@ window.addEventListener('scroll', () => {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-```
-
-#### B. Resource Hints
-```liquid
-<!-- ARQUIVO: layout/theme.liquid -->
-
-{% comment %} Prefetch recursos que serão usados em breve {% endcomment %}
-<link rel="prefetch" href="{{ 'product-card.js' | asset_url }}">
-<link rel="prefetch" href="{{ 'cart-drawer.js' | asset_url }}">
 ```
 
 ---
@@ -369,27 +246,7 @@ const loadRichTextRenderer = async () => {
 
 ### ✅ Correções:
 
-#### A. Conditional Loading
-```liquid
-<!-- ARQUIVO: layout/theme.liquid -->
-
-{% comment %} Carregar Rebuy apenas em páginas de produto {% endcomment %}
-{% if template contains 'product' %}
-  <script src="https://rebuyengine.com/js/global.js" defer></script>
-{% endif %}
-
-{% comment %} Klaviyo apenas após consentimento {% endcomment %}
-<script>
-  if (window.cookieConsent && window.cookieConsent.marketing) {
-    const klaviyoScript = document.createElement('script');
-    klaviyoScript.src = 'https://static.klaviyo.com/...';
-    klaviyoScript.defer = true;
-    document.head.appendChild(klaviyoScript);
-  }
-</script>
-```
-
-#### B. Tree Shaking para módulos próprios
+#### Tree Shaking para módulos próprios
 ```javascript
 // webpack.config.js ou vite.config.js
 // Adicionar configuração de tree shaking
