@@ -9,33 +9,13 @@
 ## 📑 Índice de Otimizações
 
 ### Performance
-1. [🖼️ Otimização de Imagens](#1--otimização-de-imagens-economia-2131-kib)
-3. [🚫 Eliminar Recursos Render-Blocking](#3--eliminar-recursos-render-blocking-economia-30ms)
-4. [📐 Reduzir Layout Shifts](#4--reduzir-layout-shifts-cls-0148)
-5. [🔄 Reduzir Reflow Forçado](#5--reduzir-reflow-forçado-169ms-total)
-6. [🎯 Otimizar LCP](#6--otimizar-lcp-largest-contentful-paint)
-7. [🌐 Otimizar Árvore de Dependências](#7--otimizar-árvore-de-dependências-de-rede)
-8. [⚡ Reduzir Tempo de Execução JavaScript](#8--reduzir-tempo-de-execução-javascript-25s-economia)
-9. [🗑️ Remover JavaScript Não Usado](#9-️-remover-javascript-não-usado-935-kib)
-
-### Práticas Recomendadas
-10. [🍪 Cookies de Terceiros](#10--cookies-de-terceiros)
-11. [❌ Erros no Console do Navegador](#11--erros-no-console-do-navegador)
-12. [⚠️ Issues do Chrome DevTools](#12-️-issues-do-chrome-devtools)
-13. [📐 Imagens com Proporção Incorreta](#13--imagens-com-proporção-incorreta)
-
----
-
-## 📈 Métricas Atuais
-- **Performance Score**: Necessita melhoria
-- **Economia Potencial**: ~2.131 KiB em imagens + 935 KiB em JavaScript
-- **Tempo de Bloqueio**: ~30ms em requisições render-blocking
-- **Layout Shift**: 0.148 CLS
-- **Erros no Console**: 6 erros (CORS, SyntaxError, Failed Resources)
-- **Cookies de Terceiros**: 1 (Snapchat - será bloqueado)
-- **Imagens Distorcidas**: 1 banner principal com proporção incorreta
-
----
+1. [🖼️ Otimização de Imagens]
+3. [🚫 Eliminar Recursos Render-Blocking]
+4. [📐 Reduzir Layout Shifts]
+5. [🔄 Reduzir Reflow Forçado]
+6. [🎯 Otimizar LCP]
+7. [🌐 Otimizar Árvore de Dependências]
+8. [⚡ Reduzir Tempo de Execução JavaScript]
 
 ## 1. 🖼️ Otimização de Imagens
 
@@ -137,7 +117,7 @@
 
 ---
 
-## 5. 🔄 Reduzir Reflow Forçado (169ms total)
+## 4. 🔄 Reduzir Reflow Forçado (169ms total)
 
 ### Scripts causando reflow:
 1. `clarity.js` (69ms)
@@ -151,7 +131,7 @@
 
 ---
 
-## 6. 🎯 Otimizar LCP (Largest Contentful Paint)
+## 5. 🎯 Otimizar LCP (Largest Contentful Paint)
 
 ### Elemento LCP identificado:
 - Imagem do banner principal (`D_BANNER_EG_2_1_86df988e`)
@@ -164,7 +144,7 @@
 - Reduza scripts bloqueantes e use CDN para entregar o conteúdo mais rápido ao usuário.
 ---
 
-## 7. 🌐 Otimizar Árvore de Dependências de Rede
+## 6. 🌐 Otimizar Árvore de Dependências de Rede
 
 ### Critical Path (6.840ms):
 1. HTML → 328ms
@@ -187,7 +167,7 @@
 
 ---
 
-## 8. ⚡ Reduzir Tempo de Execução JavaScript
+## 7. ⚡ Reduzir Tempo de Execução JavaScript
 
 ### Scripts pesados:
 1. `animations.min.js` - 891ms
@@ -213,21 +193,6 @@ const loadRichTextRenderer = async () => {
 
 ---
 
-## 🎯 Prioridades de Implementação
-
-### 🔴 Alta Prioridade (Impacto Imediato)
-1. **Converter GIF para vídeo** - 1.8MB de economia
-2. **Defer JavaScript** - 30ms de melhoria no blocking time
-3. **Corrigir proporções de imagem** - Reduz CLS
-
-### 🟡 Média Prioridade
-4. **Adicionar aspect-ratio CSS**
-
-### 🟢 Baixa Prioridade (Melhorias incrementais)
-5. **Code splitting avançado**
-6. **Otimizações de animação**
----
-
 ## 📊 Resultados Esperados
 
 Após implementação completa:
@@ -239,3 +204,14 @@ Após implementação completa:
 - **Score Performance**: 65+ (verde)
 
 ---
+
+
+| Prioridade | Ordem | Tarefa                                 | Estimativa |
+|------------|-------|----------------------------------------|------------|
+| HIGH       | 1     | 🖼️ Otimização de Imagens               | Rove       |
+| HIGH       | 2     | 🚫 Eliminar Recursos Render-Blocking   | 1h         |
+| LOW        | 3     | 📐 Reduzir Layout Shifts (CLS)         | 1h         |
+| LOW        | 4     | 🔄 Reduzir Reflow Forçado              | 1h         |
+| HIGH       | 5     | 🎯 Otimizar LCP                        | 3h         |
+| LOW        | 6     | 🌐 Otimizar Árvore de Dependências     | 2h         |
+| HIGH       | 7     | ⚡ Reduzir Tempo de Execução JavaScript | 1h         |
