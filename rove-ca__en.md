@@ -5,17 +5,22 @@
 **Repository URL**: https://github.com/RoveLab/ecommerce-shopify-rove-ca  
 **PageSpeed Insights**: https://pagespeed.web.dev/analysis/https-rovelab-ca/t1kptem4hg?form_factor=mobile
 
+<br>
 
 ---
 
+<br>
 
 This document summarizes the main points identified in **Lighthouse/PageSpeed** and organizes them into two categories:
 
 - **Actions that can be taken by the developer**  
 - **Items related to external apps** (no direct intervention possible in Shopify)
 
+<br>
 
 ---
+
+<br>
 
 ## ✅ Items that can be addressed (developer)
 
@@ -107,6 +112,8 @@ This document summarizes the main points identified in **Lighthouse/PageSpeed** 
 
 ---
 
+<br>
+
 ## 📊 Priority Table (Developer actions)
 
 | Priority  | Task                                   | Expected Impact | Time Estimate       |
@@ -117,6 +124,8 @@ This document summarizes the main points identified in **Lighthouse/PageSpeed** 
 | 🟡 Low    | Lazy loading (Item 4)                  | Low             | 30 min – 1 hour     |
 
 ---
+
+<br>
 
 ## ⚠️ Items related to external apps (not adjustable)
 
@@ -156,7 +165,11 @@ These items were reported by Lighthouse but **cannot be directly optimized** sin
 - Rebuy – 19.5 KiB  
 - app.css (store theme) – 13.2 KiB  
 
+<br>
+
 ---
+
+<br><br>
 
 # 📌 Conclusion
 A large portion of the issues identified are related to **external apps**, which cannot be directly optimized within Shopify.  

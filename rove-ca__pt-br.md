@@ -5,14 +5,22 @@
 **URL Repositorio**: https://github.com/RoveLab/ecommerce-shopify-rove-ca  
 **PageSpeed Insights**: https://pagespeed.web.dev/analysis/https-rovelab-ca/t1kptem4hg?form_factor=mobile
 
+<br>
+
 ---
+
+<br>
 
 Este documento reúne os principais pontos identificados no **PageSpeed** e divide em duas categorias:
 
 - **Ações que podem ser feitas pelo desenvolvedor**  
 - **Itens relacionados a apps externos** (sem possibilidade de intervenção direta no Shopify)  
 
+<br>
+
 ---
+
+<br>
 
 ## ✅ Itens que podem ser feitos (desenvolvedor)
 
@@ -103,6 +111,8 @@ Este documento reúne os principais pontos identificados no **PageSpeed** e divi
 
 ---
 
+<br>
+
 ## 📊 Tabela de Prioridade (Ações possíveis)
 
 | Prioridade | Tarefa                                | Impacto esperado | Estimativa de tempo |
@@ -113,6 +123,8 @@ Este documento reúne os principais pontos identificados no **PageSpeed** e divi
 | 🟡 Baixa   | Lazy loading em imagens (Item 4)      | Baixo            | 30 min – 1 hora      |
 
 ---
+
+<br>
 
 ## ⚠️ Itens relacionados a apps externos (não ajustáveis)
 
@@ -152,7 +164,11 @@ Esses itens foram reportados pelo PageSpeed, mas **não podem ser otimizados dir
 - Rebuy – 19.5 KiB  
 - app.css (tema da loja) – 13.2 KiB  
 
+<br>
+
 ---
+
+<br><br>
 
 # 📌 Conclusão
 Grande parte dos pontos levantados está relacionada a **apps externos**, sem possibilidade de ajuste no Shopify.  
