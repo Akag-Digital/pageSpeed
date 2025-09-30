@@ -126,10 +126,10 @@ A imagem principal de LCP (Largest Contentful Paint) está configurada corretame
 
 | Prioridade | Tarefa                                | Impacto esperado | Estimativa de tempo |
 |------------|----------------------------------------|------------------|----------------------|
-| 🔴 Alta    | Otimização de imagens e vídeos (Itens 2 e 4)    | Muito alto       | 3–4 horas            |
+| 🔴 Alta    | Otimização de imagens e vídeos (Itens 2 e 4)    | Muito alto       | 4-5 horas            |
 | 🔴 Alta    | Descoberta de solicitações de LCP (Item 5) | Alto             | 30 min – 1 hora          |
 | 🟠 Média   | Remoção/adiamento de scripts (Item 1) | Médio            | 30 min – 1 hora      |
-| 🟡 Baixa   | Lazy loading em imagens (Item 3)      | Baixo            | 30 min – 1 hora      |
+| 🟡 Baixa   | Lazy loading em imagens (Item 3)      | Baixo            | 1-2 horas           |
 
 ---
 

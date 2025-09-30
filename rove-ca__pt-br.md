@@ -117,10 +117,10 @@ Este documento reúne os principais pontos identificados no **PageSpeed** e divi
 
 | Prioridade | Tarefa                                | Impacto esperado | Estimativa de tempo |
 |------------|----------------------------------------|------------------|----------------------|
-| 🔴 Alta    | Otimização de imagens (Itens 2 e 5)    | Muito alto       | 3–4 horas            |
-| 🔴 Alta    | Estabilidade do layout (CLS – Item 3) | Alto             | 2–3 horas            |
+| 🔴 Alta    | Otimização de imagens (Itens 2 e 5)    | Muito alto       | 4-5 horas            |
+| 🔴 Alta    | Estabilidade do layout (CLS – Item 3) | Alto             | 3-4 horas            |
 | 🟠 Média   | Remoção/adiamento de scripts (Item 1) | Médio            | 30 min – 1 hora      |
-| 🟡 Baixa   | Lazy loading em imagens (Item 4)      | Baixo            | 30 min – 1 hora      |
+| 🟡 Baixa   | Lazy loading em imagens (Item 4)      | Baixo            | 1-2 horas            |
 
 ---
 

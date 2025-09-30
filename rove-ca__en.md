@@ -118,10 +118,10 @@ This document summarizes the main points identified in **Lighthouse/PageSpeed** 
 
 | Priority  | Task                                   | Expected Impact | Time Estimate       |
 |-----------|----------------------------------------|-----------------|---------------------|
-| 🔴 High   | Image optimization (Items 2 & 5)       | Very High       | 3–4 hours           |
-| 🔴 High   | Layout stability (CLS – Item 3)        | High            | 2–3 hours           |
+| 🔴 High   | Image optimization (Items 2 & 5)       | Very High       | 4-5 hours           |
+| 🔴 High   | Layout stability (CLS – Item 3)        | High            | 3-4 hours           |
 | 🟠 Medium | Script removal/deferral (Item 1)       | Medium          | 30 min – 1 hour     |
-| 🟡 Low    | Lazy loading (Item 4)                  | Low             | 30 min – 1 hour     |
+| 🟡 Low    | Lazy loading (Item 4)                  | Low             | 1-2 hours           |
 
 ---
 

@@ -132,10 +132,10 @@ The main LCP (Largest Contentful Paint) image is correctly configured with `fetc
 
 | Priority | Task                                  | Expected Impact | Time Estimate       |
 |----------|---------------------------------------|-----------------|---------------------|
-| 🔴 High  | Image optimization (Items 2 and 4)    | Very high       | 3–4 hours           |
+| 🔴 High  | Image optimization (Items 2 and 4)    | Very high       | 4-5 hours           |
 | 🔴 High  | LCP request discovery (Item 5)        | High            | 30 min – 1 hour     |
 | 🟠 Medium| Script removal/deferral (Item 1)      | Medium          | 30 min – 1 hour     |
-| 🟡 Low   | Lazy loading for images (Item 3)      | Low             | 30 min – 1 hour     |
+| 🟡 Low   | Lazy loading for images (Item 3)      | Low             | 1-2 hours           |
 
 ---
 

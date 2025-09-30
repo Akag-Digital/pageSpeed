@@ -152,11 +152,11 @@ This document gathers the main findings from **PageSpeed** and splits them into 
 
 | Priority | Task                                 | Expected Impact | Time Estimate      |
 |----------|--------------------------------------|-----------------|--------------------|
-| 🔴 High  | Image optimization (Items 2 and 4)   | Very high       | 3–4 hours          |
+| 🔴 High  | Image optimization (Items 2 and 4)   | Very high       | 4-5 hours          |
 | 🔴 High  | LCP request discovery (Item 5)       | High            | 30 min – 1 hour    |
 | 🔴 High  | Layout stability (CLS – Item 6)      | High            | 4–5 hours          |
 | 🟠 Medium| Script removal/deferral (Item 1)     | Medium          | 30 min – 1 hour    |
-| 🟡 Low   | Lazy loading on images (Item 3)      | Low             | 30 min – 1 hour    |
+| 🟡 Low   | Lazy loading on images (Item 3)      | Low             | 1-2 hours         |
 
 ---
 
