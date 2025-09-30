@@ -1,8 +1,8 @@
 # 📊 Plano de Otimização de Performance
 **Data**: 30 de setembro de 2025  
 **Análise**: Google PageSpeed Insights  
-**URL**: https://rovelab.hk
-**URL Repositorio**: https://github.com/RoveLab/ecommerce-shopify-rove-hk 
+**URL**: https://rovelab.hk  
+**URL Repositorio**: https://github.com/RoveLab/ecommerce-shopify-rove-hk  
 **PageSpeed Insights**: https://pagespeed.web.dev/analysis/https-rovelab-hk/5abt6qfmsl?form_factor=mobile
 
 <br>
